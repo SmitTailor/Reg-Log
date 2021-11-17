@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="form">
+            <div class="note">
+                <p>This is a simpleRegister Form made using Boostrap.</p>
+            </div>
+            <form class="form" method="post" action="">
+                {% csrf_token %}
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6 offset-3">
+                            <div class="form-group">
+                                <input type="text" id = "Email" name="Email" class="form-control" placeholder="Email Id" value=""/ required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-3">
+                            <div class="form-group">
+                                <input type="text" id = "Password" name="Password" class="form-control" placeholder="Password *" value=""/ required>
+                            </div>
+                        </div>
+                        <div class="col-md-2 offset-10">
+                            <div class="form-group">
+                                {% if status %}
+                                    <p style="color: red;">{{status}}</p>
+                                {% else %}
+                                    <p></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btnSubmit" value="Login">
+                    <a href="{% url 'add_show' %}" class="btn">Smit</a>
+                </div>
+            </form>
+        </div>
+{% endblock content %}
